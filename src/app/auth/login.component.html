@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <form [formGroup]="prueba">
+    <label class="me-3">Ingresa un numero:</label>
+    <input formControlName="numero" type="text" />
+    <div>
+      <button type="submit" class="btn btn-primary mb-4 btn-confirmar" (click)="analizar()">Analizar</button>
+    </div>
+  </form>
+  <div *ngFor="let item of resultado">
+    <div *ngIf="item % 3 == 0">
+      <p class="text-success">{{ item }}, [3]</p>
+    </div>
+    <div *ngIf="item % 5 == 0">
+      <p class="text-danger">{{ item }}, [5]</p>
+    </div>
+    <div *ngIf="item % 7 == 0">
+      <p class="text-primary">{{ item }}, [7]</p>
+    </div>
+
+    <div *ngIf="item % 3 == 0 && item % 7 == 0">
+      <p class="text-success">{{ item }}, [3 , 7]</p>
+    </div>
+
+    <div *ngIf="item % 3 == 0 && item % 5 == 0">
+      <p class="text-danger">{{ item }}, [3, 5]</p>
+    </div>
+
+    <div *ngIf="item % 5 == 0 && item % 7 == 0">
+      <p class="text-success">{{ item }}, [5, 7]</p>
+    </div>
+  </div>
+</div>
